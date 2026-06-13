@@ -34,7 +34,7 @@ async function main() {
   // Add members with timelines
   // Meera left end of March
   // Sam joined mid-April
-  const timelineRules = {
+  const timelineRules: Record<string, { joinedAt?: Date; leftAt?: Date }> = {
     Meera: { leftAt: new Date('2026-03-31T23:59:59Z') },
     Sam: { joinedAt: new Date('2026-04-15T00:00:00Z') },
   }
