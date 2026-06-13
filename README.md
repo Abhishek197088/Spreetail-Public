@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shared Expenses App
 
-## Getting Started
+A production-ready shared expenses management application built with Next.js 15, Prisma, Tailwind CSS, and Shadcn UI.
 
-First, run the development server:
+## Setup & Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Setup the database connection:
+   - Copy `.env.example` to `.env` (or set `DATABASE_URL` manually).
+   - This project uses SQLite locally for rapid development but is configured for PostgreSQL in production.
+4. Run migrations: `npx prisma migrate dev`
+5. Start development server: `npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- **Group Management:** Add and remove members with timeline tracking.
+- **Complex Splits:** Equal, Exact Amount, Percentage, and Shares.
+- **Import Engine:** Upload CSV files, detect anomalies (duplicates, floating-point issues), and review before importing.
+- **Balance Engine:** Uses a graph-based debt simplification algorithm to minimize transactions.
+- **Multi-currency:** Native support for USD/INR with historical exchange rates.
+- **Auditability:** Transparent balance calculations showing exactly who owes what and why.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+- **Frontend:** Deploy on Vercel by importing the repository. Environment variables required: `DATABASE_URL`, `NEXTAUTH_SECRET`.
+- **Database:** Deploy on Railway or Supabase and use the PostgreSQL connection string in Vercel.
